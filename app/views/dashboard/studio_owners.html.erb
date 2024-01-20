@@ -1,0 +1,11 @@
+<h1>Dashboard#studio_owners</h1>
+<p>Find me in app/views/dashboard/admin.html.erb</p>
+
+<% if current_studio_owner.studio %>
+  <%= current_studio_owner.studio.name %>
+<% end %>
+
+<% if studio_owner_signed_in? %>
+  <%= link_to "Sign out", destroy_studio_owner_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <%= link_to "Edit registration", edit_studio_owner_registration_path %>
+<% end %>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppointMe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="mt-6 ml-6">
+    <main>
+      <div class="flex">
+        <div class="w-1/5">
+          <%= render partial: 'application/nav_bar' %>
+        </div>
+
+        <div class="w-4/5">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

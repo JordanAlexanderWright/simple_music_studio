@@ -1,0 +1,13 @@
+<ul class="flex flex-col space-y-4">
+  <%= link_to 'Dashboard', root_path %>
+  <li>Invoices</li>
+  <%= link_to 'Messages', messages_index_path %>
+
+  <% if current_studio_owner %>
+
+    <%= link_to 'Student Management', studio_owners_student_management_index_path %>
+    <li>Request Payment</li>
+    <li>Recurring Billing</li>
+
+  <% end %>
+</ul>

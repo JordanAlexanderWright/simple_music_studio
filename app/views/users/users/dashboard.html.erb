@@ -1,0 +1,41 @@
+<div>
+  <h1>user#index</h1>
+  <p>Find me in app/views/user/index.html.erb</p>
+
+  <!--<h4>The old way</h4>-->
+<%# if current_user %>
+  <%#= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <%#= link_to "Edit registration", edit_user_registration_path %>
+<%# else %>
+  <%#= link_to "Sign up", new_user_registration_path %>
+  <%#= link_to "Sign in", new_user_session_path %>
+<%# end %>
+
+
+  <h3>What you might have seen lately</h3>
+
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <%= link_to "Edit registration", edit_user_registration_path %>
+  <% elsif !studio_owner_signed_in? %>
+    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+
+  <h3>Admin Links</h3>
+
+  <% if studio_owner_signed_in? %>
+    <%= link_to "Sign out", destroy_studio_owner_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <%= link_to "Edit registration", edit_studio_owner_registration_path %>
+  <% elsif !user_signed_in? %>
+    <%= link_to "Sign up", new_studio_owner_registration_path %>
+    <%= link_to "Sign in", new_studio_owner_session_path %>
+  <% end %>
+
+<!--  <h4>Page Links</h4>-->
+  <%#= link_to "Home", root_path %>
+  <%#= link_to "Users Path", dashboard_users_path %>
+  <%#= link_to "Admin Path", studio_owners_dashboard_path %>
+
+
+</div>

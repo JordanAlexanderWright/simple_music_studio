@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Studios</h1>
+
+<div id="studios">
+  <% @studios.each do |studio| %>
+    <%= render studio %>
+    <p>
+      <%= link_to "Show this studio", studio %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New studio", new_studio_path %>
