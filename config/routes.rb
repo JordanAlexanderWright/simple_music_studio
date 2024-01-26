@@ -24,8 +24,11 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'studio_owners#dashboard'
     resources :student_management, only: [:index]
     resources :request_payments, only: [:index, :new]
-  end
+    resource :account_management, only: [:edit, :index], controller: 'account_management' do
+      post :accept_tos, on: :collection
+    end
 
+  end
   # get 'users/signup', to: 'users/users#signup'
   post 'send_invitation', to: 'invitations#send_invitation'
 

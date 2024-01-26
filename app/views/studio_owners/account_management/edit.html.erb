@@ -1,0 +1,11 @@
+<h1>Hello World. </h1>
+
+<button>Accept Stripe Terms</button>
+
+<%#= button_to 'Accept Stripe Terms', :register_stripe_account, method: :post, class: 'btn btn-primary' %>
+
+<%#= turbo_frame_tag "stripe_register" do %>
+  <%= form_with url: accept_tos_studio_owners_account_management_path, method: :post do |form| %>
+    <%= form.submit "Register with Stripe" %>
+  <% end %>
+<%# end %>

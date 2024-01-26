@@ -36,4 +36,21 @@ class StudioOwner < ApplicationRecord
 
   end
 
+  def confirm_stripe_tos
+      Stripe.api_key =  ENV['STRIPE_TEST_KEY']
+
+      response = Stripe::Account.update(
+        self.stripe_account_id,
+        {
+          tos_acceptance: {
+            date: 1609798905,
+            ip: '8.8.8.8',
+          },
+        },
+      )
+
+
+
+  end
+
 end
