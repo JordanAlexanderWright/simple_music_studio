@@ -1,7 +1,6 @@
 <h1>studio_owner#dashboard</h1>
 <p>Find me in app/views/dashboard/admin.html.erb</p>
 
-
 <% if current_studio_owner.studio %>
   <%= current_studio_owner.studio.name %>
 <% end %>
@@ -11,7 +10,9 @@
   <%= link_to "Edit registration", edit_studio_owner_registration_path %>
 <% end %>
 
-<a href=<%= @link %>>Create Your Stripe Account</a>
+<% unless current_studio_owner.stripe_account_id %>
+  <a href=<%= @link %>>Create Your Stripe Account</a>
+<% end %>
 
 <button>
   Hello

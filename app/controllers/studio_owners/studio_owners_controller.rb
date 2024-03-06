@@ -26,8 +26,6 @@ module StudioOwners
       response.url
     end
 
-
-
     def check_studio
       puts 'hello'
       unless current_studio_owner.studio

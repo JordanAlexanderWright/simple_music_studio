@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   namespace :users do
     root 'users#dashboard'
+
+
   end
 
   namespace :studio_owners do
@@ -27,8 +29,18 @@ Rails.application.routes.draw do
     resource :account_management, only: [:edit, :index], controller: 'account_management' do
       post :accept_tos, on: :collection
     end
-
   end
+
+  post '/create-checkout-session', to:'payments#payment_request' do
+    content_type 'application/json'
+  end
+
+  get '/payment_success', to:'payments#success'
+  get '/payment_failure', to:'payments#failure'
+
+
+
+
   # get 'users/signup', to: 'users/users#signup'
   post 'send_invitation', to: 'invitations#send_invitation'
 
